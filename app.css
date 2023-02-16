@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+}
+
+img {
+  width: 100%;
+}
+
+#screen {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 100%;
+  width: 100%;
+  aspect-ratio: 16/9;
+}
+#game {
+  grid-area: 1 / 1;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 100% / 100%;
+  grid-template-rows: 100%;
+}
+#game_background {
+  grid-area: 1 / 1;
+  background-image: url(img/Cave.avif);
+  background-size: cover;
+}
+
+#game_elements {
+  grid-area: 1 / 1;
+  position: relative;
+  overflow: hidden;
+}
+
+#game_foreground {
+  grid-area: 1 / 1;
+  background-size: cover;
+  background-position: relative;
+  max-width: 100%;
+  top: 35%;
+  overflow: hidden;
+}
