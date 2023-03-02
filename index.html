@@ -1,30 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SpaceCave</title>
     <link rel="stylesheet" href="app.css" />
-</head>
-<body>
-  <div id="screen">
-    <div id="game">
-      <div id="game_background">
+  </head>
+  <body>
+    <div id="screen">
+      <div id="game">
+        <div id="game_background"></div>
+        <div id="game_elements"> 
+          <div id="alien_container1" class="falling">
+          <img
+            id="alien_sprite1"
+            src="img/img aliens/predatormask__0038_fire_4.png"
+            alt=""
+          />
+          </div>
+          <div id="alien_container2" class="falling">
+          <img
+            id="alien_sprite2"
+            src="img/img aliens/red__0031_attack_1.png"
+            alt=""
+          />
+          </div>
+          <div id="alien_container3" class="falling">
+          <img
+            id="alien_sprite3"
+            src="img/img aliens/darkgray__0031_attack_1.png"
+            alt=""
+          />
+          </div>
+          <div id="alien_container4" class="falling">
+          <img
+            id="alien_sprite4"
+            src="img/img aliens/armor__0031_attack_1.png"
+            alt=""
+          />
+          </div>
+          <div id="pie_container1" class="falling_2">
+          <img id="pie_sprite1" src="img/good items/05_apple_pie.png" alt="" />
+          </div>
+          <div id="cheesecake_container1" class="falling_2">
+          <img
+            id="cheesecake_sprite1"
+            src="img/good items/22_cheesecake.png"
+            alt=""
+          />
+          </div>
+          <div id="donut_container1" class="falling_2">
+          <img id="donut_sprite1" src="img/good items/34_donut.png" alt="" />
+          </div>
+          <div id="dumpling_container1" class="falling_2">
+          <img
+            id="dumpling_sprite1" src="img/good items/36_dumplings.png"alt=""/>
+          </div>
+        </div>
+        <div id="game_foreground"></div>
+          <div id="game_ui">
+            <div id="time_board" />
+            <div id="life_board">
+              <img
+                id="heart1"
+                src="img/good items/pixel-heart-gcf52ee878_640.png"
+                class="active_heart"
+              />
+              <img
+                id="heart2"
+                src="img/good items/pixel-heart-gcf52ee878_640.png"
+                class="active_heart"
+              />
+              <img
+                id="heart3"
+                src="img/good items/pixel-heart-gcf52ee878_640.png"
+                class="active_heart"
+              />
+            </div>
+            <div id="score_board" />
+            <div id="coin_count">0</div>
+            <img id="coin_image" src="img/good items/34_donut.png" alt="" />
+          </div>
+        </div>
       </div>
-      <div id="game_elements"></div>
-       <div id="rotte_container1">
-        <img id="rotte_sprite" src="https://opengameart.org/sites/default/files/styles/medium/public/ratpng.png" alt="">
-      <div id="game_foreground"></div>
-      <div id="game_ui">
-        <img id="time_board">
-        <img id="score_board">
-        <img id="energy_board">
+      <div id="start">
+	<h2>CoinClicker Mini 🤑</h2>
+  <p>Collect 10 coins before the time runs out</p>
+  <button id="btn_start" class="pulse">Start</button>
+</div>
+      </div>
+      <div id="game_over" class="hidden">
+        <h2>Game over</h2>
+      </div>
+      <div id="level_complete" class="hidden">
+        <h2>Level complete!</h2>
       </div>
     </div>
-    <div id="start"></div>
-    <div id="game_over"></div>
-    <div id="level_complete"></div>
-  </div>
-</body>
+    <script src="app.js"></script>
+  </body>
 </html>

@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  overflow: hidden;
 }
 
 img {
@@ -12,6 +13,16 @@ img {
   grid-template-rows: 100%;
   width: 100%;
   aspect-ratio: 16/9;
+  background-color: blue;
+}
+#start {
+  grid-area: 1 /1;
+  z-index: 999;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  background-image: linear-gradient(150deg, #20c903 0%, #09793b 100%);
+  color: #ffffff;
 }
 #game {
   grid-area: 1 / 1;
@@ -22,8 +33,8 @@ img {
 }
 #game_background {
   grid-area: 1 / 1;
-  background-image: url(img/Cave.avif);
-  background-size: cover;
+  background-image: url(img/Honeyplanet.jpg);
+  background-size: contain;
 }
 
 #game_elements {
@@ -37,6 +48,215 @@ img {
   background-size: cover;
   background-position: relative;
   max-width: 100%;
-  top: 35%;
   overflow: hidden;
+}
+#game_ui {
+  position: absolute;
+  top: 2vw;
+  right: 1vw;
+  color: rgb(245, 226, 19);
+
+  font-size: 4em;
+  font-family: sans-serif;
+
+  pointer-events: none;
+}
+#game_over {
+  grid-area: 1 /1;
+  z-index: 999;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  background-image: linear-gradient(150deg, #c90303 0%, #e01111 100%);
+  color: #ffffff;
+}
+#level_complete {
+  grid-area: 1 /1;
+  z-index: 999;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  background-image: linear-gradient(150deg, #20c903 0%, #1fee7c 100%);
+  color: #ffffff;
+}
+
+#score_board {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 0.1em;
+}
+#coin_count {
+  white-space: nowrap;
+  text-align: right;
+}
+#coin_image {
+  width: 1em;
+}
+#life_board {
+  margin-block-start: 0.2em;
+  display: grid;
+  grid-template-columns: 1.2em 1.2em 1.2em;
+}
+
+#life_board img {
+  width: 100%;
+}
+
+#alien_container1 {
+  width: 5%;
+  position: absolute;
+}
+#alien_container2 {
+  width: 5%;
+  position: absolute;
+}
+#alien_container3 {
+  width: 5%;
+  position: absolute;
+}
+#alien_container4 {
+  width: 5%;
+  position: absolute;
+}
+#pie_container1 {
+  width: 6.5%;
+  position: absolute;
+}
+#cheesecake_container1 {
+  width: 6.5%;
+  position: absolute;
+}
+#donut_container1 {
+  width: 6.5%;
+  position: absolute;
+}
+#dumpling_container1 {
+  width: 6.5%;
+  position: absolute;
+}
+.hidden,
+#game_over.hidden,
+#level_complete.hidden,
+#game.hidden,
+#start.hidden {
+  display: none;
+}
+
+/* positions */
+
+.position1 {
+  top: 0%;
+  left: 10%;
+}
+.position2 {
+  top: 0%;
+  left: 20%;
+}
+.position3 {
+  top: 0%;
+  left: 30%;
+}
+.position4 {
+  top: 0%;
+  left: 40%;
+}
+.position5 {
+  top: 0%;
+  left: 50%;
+}
+.position6 {
+  top: 0%;
+  left: 60%;
+}
+.position7 {
+  top: 0%;
+  left: 70%;
+}
+.position8 {
+  top: 0%;
+  left: 80%;
+}
+
+.active_heart {
+  filter: drop-shadow(0 0 2px yellow);
+}
+
+.broken_heart {
+  filter: grayscale(75%) blur(0.5px);
+}
+
+/* animation*/
+
+.falling1 {
+  animation-name: falling;
+  animation-duration: 10s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes falling {
+  0% {
+    transform: translate(0, -200%);
+  }
+  100% {
+    transform: translate(0, 56.25vw);
+  }
+}
+
+.falling2 {
+  animation-name: falling2;
+  animation-duration: 10s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes falling_2 {
+  0% {
+    transform: translate(0%, -200%);
+  }
+  100% {
+    transform: translate(0, 56.25vw);
+  }
+}
+
+.spiral {
+  animation-name: spiral;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  transform-origin: 50% 150%;
+}
+
+@keyframes spiral {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  100% {
+    transform: rotate(720deg) scale(0);
+  }
+}
+
+.paused {
+  animation-play-state: paused;
+}
+
+.zoom_in {
+  animation-name: zoom_in;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes zoom_in {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  90% {
+    transform: translate(0%, 0) scale(0.5) rotate(720deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0%, 0) scale(0) rotate(900deg);
+    opacity: 0;
+  }
 }
