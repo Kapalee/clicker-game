@@ -61,6 +61,9 @@
         <div id="game_foreground"></div>
           <div id="game_ui">
             <div id="time_board" />
+            <div id="time container">
+              <div id="time_sprite" class=""></div>
+            </div>
             <div id="life_board">
               <img
                 id="heart1"
@@ -85,16 +88,18 @@
         </div>
       </div>
       <div id="start">
-	<h2>CoinClicker Mini 🤑</h2>
-  <p>Collect 10 coins before the time runs out</p>
+	<h2>Alien Berzerk Alert 👽</h2>
+  <p>Kill 10 aliens before the time runs out!</p>
   <button id="btn_start" class="pulse">Start</button>
 </div>
       </div>
       <div id="game_over" class="hidden">
         <h2>Game over</h2>
+        <button id="btn_restart" class="pulse">Restart Game</button>
       </div>
       <div id="level_complete" class="hidden">
         <h2>Level complete!</h2>
+        <button id="btn_go_to_start" class="pulse">Go to start</button>
       </div>
     </div>
     <script src="app.js"></script>

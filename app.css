@@ -21,8 +21,10 @@ img {
   display: grid;
   justify-content: center;
   align-content: center;
-  background-image: linear-gradient(150deg, #20c903 0%, #09793b 100%);
+  background-image: linear-gradient(150deg, #f62f2f 0%, #f5a91d 100%);
   color: #ffffff;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  text-align: center;
 }
 #game {
   grid-area: 1 / 1;
@@ -54,7 +56,7 @@ img {
   position: absolute;
   top: 2vw;
   right: 1vw;
-  color: rgb(245, 226, 19);
+  color: rgb(253, 119, 10);
 
   font-size: 4em;
   font-family: sans-serif;
@@ -204,7 +206,7 @@ img {
 }
 
 .falling2 {
-  animation-name: falling2;
+  animation-name: falling;
   animation-duration: 10s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
@@ -221,7 +223,7 @@ img {
 
 .spiral {
   animation-name: spiral;
-  animation-duration: 2s;
+  animation-duration: 0.5s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   transform-origin: 50% 150%;
@@ -256,7 +258,73 @@ img {
     opacity: 1;
   }
   100% {
-    transform: translate(0%, 0) scale(0) rotate(900deg);
+    transform: translate(0%, 0) scale(0) rotate(800deg);
     opacity: 0;
+  }
+}
+
+.pulse {
+  animation-name: pulse_kf;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+}
+button {
+  padding: 0.5em 1em;
+  font-size: 2em;
+  margin: auto;
+  background-color: #ffad01;
+  color: #fff4bf;
+  border: 10px solid #ffc72e;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+/* Timer */
+
+#time_board {
+  position: relative;
+}
+
+#time_container {
+  position: absolute;
+  width: 100%;
+  aspect-ratio: 30/6;
+  border: 2px solid black;
+  background-color: rgba(208, 204, 204, 0.383);
+  top: 1.6vh;
+  left: 0.2vw;
+}
+
+#time_sprite {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: limegreen;
+  transform-origin: right;
+}
+
+/* ------------ TIMER ANIMATIONER ------------ */
+
+.shrink {
+  animation-name: shrink_kf;
+  animation-duration: 20s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes shrink_kf {
+  0% {
+    scale: 1 1;
+    background-color: limegreen;
+  }
+  50% {
+    background-color: rgb(255, 230, 0);
+  }
+  100% {
+    scale: 1 0;
+    background-color: red;
   }
 }

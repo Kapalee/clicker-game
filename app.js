@@ -5,6 +5,8 @@ window.addEventListener("load", ready);
 function ready() {
   console.log("JavaScript ready!");
   document.querySelector("#btn_start").addEventListener("click", startGame);
+  document.querySelector("#btn_go_to_start").addEventListener("click", showStartScreen);
+  document.querySelector("#btn_restart").addEventListener("click", startGame);
 }
 
 let points = 0;
@@ -16,11 +18,33 @@ function startGame() {
   lives = 3;
 
   document.querySelector("#start").classList.add("hidden");
+  showGameScreen();
+  resetPoints();
+  resetLives();
 
   startAnimation();
   regClick();
   addPosition();
   aniRestart();
+  startTimer();
+}
+function resetLives() {
+  // sæt lives til 3
+  lives = 3;
+  //nulstil visning af liv (hjerte vi ser)
+  document.querySelector("#heart1").classList.remove("broken_heart");
+  document.querySelector("#heart2").classList.remove("broken_heart");
+  document.querySelector("#heart3").classList.remove("broken_heart");
+  document.querySelector("#heart1").classList.add("active_heart");
+  document.querySelector("#heart2").classList.add("active_heart");
+  document.querySelector("#heart3").classList.add("active_heart");
+}
+
+function resetPoints() {
+  // nulstil point
+  points = 0;
+  // nulstil vising af point
+  displayPoints();
 }
 
 function aniRestart() {
@@ -187,6 +211,36 @@ function gameover() {
 function levelComplete() {
   console.log("Level complete bitch");
   document.querySelector("#level_complete").classList.remove("hidden");
+}
+function showStartScreen() {
+  // fjern hidden fra startskærm og tilføj til game over og level complete
+  document.querySelector("#start").classList.remove("hidden");
+  document.querySelector("#game_over").classList.add("hidden");
+  document.querySelector("#level_complete").classList.add("hidden");
+}
+function showGameScreen() {
+  // Skjul startskærm, game over og level complete
+  document.querySelector("#start").classList.add("hidden");
+  document.querySelector("#game_over").classList.add("hidden");
+  document.querySelector("#level_complete").classList.add("hidden");
+}
+
+function startTimer() {
+  // Sæt timer-animationen (shrink) i gang ved at tilføje klassen shrink til time_sprite
+  document.querySelector("#time_sprite").classList.add("shrink");
+
+  // Tilføj en eventlistener som lytter efter at animationen er færdig (animationend) og kalder funktionen timeIsUp
+  document.querySelector("#time_sprite").addEventListener("animationend", timeIsUp);
+}
+
+function timeIsUp() {
+  console.log("Tiden er gået!");
+
+  if (points >= 10) {
+    levelComplete();
+  } else {
+    gameover();
+  }
 }
 
 function stopGame() {
