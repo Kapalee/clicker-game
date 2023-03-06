@@ -107,6 +107,7 @@ function clickAlien() {
 
   document.querySelector("#alien_death").play();
 
+
   incrementPoints();
 }
 
@@ -120,6 +121,10 @@ function clickGood() {
   pie.querySelector("img").classList.add("zoom_in");
 
   pie.addEventListener("animationend", goodGone);
+
+  document.querySelector("#bad_death").currentTime = 0;
+
+  document.querySelector("#bad_death").play();
 
   decrementLives();
 }
