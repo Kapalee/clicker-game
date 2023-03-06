@@ -11,9 +11,10 @@ function ready() {
 
 let points = 0;
 let lives = 3;
+let IsGameRunning = false;
 function startGame() {
   console.log("start");
-
+  IsGameRunning = true;
   points = 0;
   lives = 3;
 
@@ -102,6 +103,10 @@ function clickAlien() {
 
   alien.addEventListener("animationend", alienGone);
 
+  document.querySelector("#alien_death").currentTime = 0;
+
+  document.querySelector("#alien_death").play();
+
   incrementPoints();
 }
 
@@ -129,8 +134,9 @@ function alienGone() {
 
   alien.classList.remove("paused");
 
-  animationRestart.call(this);
-
+  if (IsGameRunning) {
+    animationRestart.call(this);
+  }
   alien.addEventListener("click", clickAlien);
 }
 
@@ -143,8 +149,9 @@ function goodGone() {
 
   good.classList.remove("paused");
 
-  animationRestart.call(this);
-
+  if (IsGameRunning) {
+    animationRestart.call(this);
+  }
   good.addEventListener("click", clickGood);
 }
 
@@ -206,31 +213,31 @@ function showIncrementedLives() {
 function gameover() {
   console.log("Game over bitch");
   document.querySelector("#game_over").classList.remove("hidden");
+  stopGame();
 }
 
 function levelComplete() {
   console.log("Level complete bitch");
   document.querySelector("#level_complete").classList.remove("hidden");
+  stopGame();
 }
 function showStartScreen() {
-  // fjern hidden fra startskærm og tilføj til game over og level complete
   document.querySelector("#start").classList.remove("hidden");
   document.querySelector("#game_over").classList.add("hidden");
   document.querySelector("#level_complete").classList.add("hidden");
 }
 function showGameScreen() {
-  // Skjul startskærm, game over og level complete
   document.querySelector("#start").classList.add("hidden");
   document.querySelector("#game_over").classList.add("hidden");
   document.querySelector("#level_complete").classList.add("hidden");
 }
 
 function startTimer() {
-  // Sæt timer-animationen (shrink) i gang ved at tilføje klassen shrink til time_sprite
-  document.querySelector("#time_sprite").classList.add("shrink");
+  document.querySelector("#minut_viser").classList.add("minut_animation");
+  document.querySelector("#time_viser").classList.add("time_animation");
 
-  // Tilføj en eventlistener som lytter efter at animationen er færdig (animationend) og kalder funktionen timeIsUp
-  document.querySelector("#time_sprite").addEventListener("animationend", timeIsUp);
+  //Når animationen er færdig kaldes stopSpillet()
+  document.querySelector("#minut_viser").addEventListener("animationend", gameover);
 }
 
 function timeIsUp() {
@@ -244,6 +251,7 @@ function timeIsUp() {
 }
 
 function stopGame() {
+  IsGameRunning = false;
   // Stop animationer
   document.querySelector("#alien_container1").classList.remove("falling1", "falling2");
   document.querySelector("#alien_container2").classList.remove("falling1", "falling2");
@@ -264,7 +272,10 @@ function stopGame() {
   document.querySelector("#donut_container1").removeEventListener("click", clickGood);
   document.querySelector("#dumpling_container1").removeEventListener("click", clickGood);
 
+  document.querySelector("#minut_viser").classList.remove("minut_animation");
+  document.querySelector("#time_viser").classList.remove("time_animation");
+
   // Stop og nulstil lyde, fx baggrundsmusik
-  document.querySelector("#sound_dreams").pause();
-  document.querySelector("#sound_dreams").currentTime = 0;
+  //document.querySelector("#sound_dreams").pause();
+ // document.querySelector("#sound_dreams").currentTime = 0;
 }

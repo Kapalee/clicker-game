@@ -62,7 +62,9 @@
           <div id="game_ui">
             <div id="time_board" />
             <div id="time container">
-              <div id="time_sprite" class=""></div>
+              <div id="urskive"></div>
+              <div id="time_viser" class=""></div>
+              <div id="minut_viser" class=""></div>
             </div>
             <div id="life_board">
               <img
@@ -89,7 +91,7 @@
       </div>
       <div id="start">
 	<h2>Alien Berzerk Alert 👽</h2>
-  <p>Kill 10 aliens before the time runs out!</p>
+  <p>Aliens have overrun your spacecamp. Kill them, but dont hit your food supplies!</p>
   <button id="btn_start" class="pulse">Start</button>
 </div>
       </div>
@@ -102,6 +104,7 @@
         <button id="btn_go_to_start" class="pulse">Go to start</button>
       </div>
     </div>
+    <audio id="alien_death" src="sounds/pixel-death-66829.mp3"></audio>
     <script src="app.js"></script>
   </body>
 </html>

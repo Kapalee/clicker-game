@@ -25,6 +25,7 @@ img {
   color: #ffffff;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   text-align: center;
+  font-size: 1.5em;
 }
 #game {
   grid-area: 1 / 1;
@@ -71,6 +72,7 @@ img {
   align-content: center;
   background-image: linear-gradient(150deg, #c90303 0%, #e01111 100%);
   color: #ffffff;
+  text-align: center;
 }
 #level_complete {
   grid-area: 1 /1;
@@ -176,7 +178,7 @@ img {
 }
 .position8 {
   top: 0%;
-  left: 80%;
+  left: 5%;
 }
 
 .active_heart {
@@ -192,29 +194,29 @@ img {
 .falling1 {
   animation-name: falling;
   animation-duration: 10s;
-  animation-timing-function: ease-in-out;
+  animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
 
 @keyframes falling {
   0% {
-    transform: translate(0, -200%);
+    transform: translate(0, -200%) rotate(0deg);
   }
   100% {
-    transform: translate(0, 56.25vw);
+    transform: translate(0, 56.25vw) rotate(720deg);
   }
 }
 
 .falling2 {
   animation-name: falling;
   animation-duration: 10s;
-  animation-timing-function: ease-in-out;
+  animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
 
 @keyframes falling_2 {
   0% {
-    transform: translate(0%, -200%);
+    transform: translate(0, -200%);
   }
   100% {
     transform: translate(0, 56.25vw);
@@ -270,13 +272,22 @@ img {
   animation-timing-function: linear;
   animation-direction: alternate;
 }
+@keyframes pulse_kf {
+  0% {
+    transform: scale(0.8);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
 button {
   padding: 0.5em 1em;
   font-size: 2em;
   margin: auto;
   background-color: #ffad01;
   color: #fff4bf;
-  border: 10px solid #ffc72e;
+  border: 5px solid #ffc72e;
   cursor: pointer;
   border-radius: 10px;
 }
@@ -287,44 +298,61 @@ button {
   position: relative;
 }
 
-#time_container {
-  position: absolute;
-  width: 100%;
-  aspect-ratio: 30/6;
-  border: 2px solid black;
-  background-color: rgba(208, 204, 204, 0.383);
-  top: 1.6vh;
-  left: 0.2vw;
-}
-
-#time_sprite {
+#urskive {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: limegreen;
-  transform-origin: right;
+  background-image: url(urskive.svg);
+  background-size: cover;
 }
 
-/* ------------ TIMER ANIMATIONER ------------ */
+#minut_viser {
+  position: absolute;
+  top: 105%;
+  left: 65%;
+  width: 3%;
+  height: 45%;
+  border-radius: 50%;
+  transform-origin: bottom center;
+  background-color: black;
+}
 
-.shrink {
-  animation-name: shrink_kf;
-  animation-duration: 20s;
-  animation-iteration-count: 1;
+#time_viser {
+  position: absolute;
+  top: 120%;
+  left: 65%;
+  width: 3%;
+  height: 30%;
+  border-radius: 50%;
+  transform-origin: bottom center;
+  background-color: red;
+  rotate: 30deg;
+}
+
+/* ------------ ANIMATIONER ------------ */
+
+.minut_animation {
+  animation-name: min_kf;
+  animation-duration: 45s;
+  animation-fill-mode: both;
   animation-timing-function: linear;
-  animation-fill-mode: forwards;
 }
 
-@keyframes shrink_kf {
-  0% {
-    scale: 1 1;
-    background-color: limegreen;
+@keyframes min_kf {
+  to {
+    rotate: 360deg;
   }
-  50% {
-    background-color: rgb(255, 230, 0);
-  }
-  100% {
-    scale: 1 0;
-    background-color: red;
+}
+
+.time_animation {
+  animation-name: time_kf;
+  animation-duration: 45s;
+  animation-fill-mode: both;
+  animation-timing-function: linear;
+}
+
+@keyframes time_kf {
+  to {
+    rotate: 60deg;
   }
 }
