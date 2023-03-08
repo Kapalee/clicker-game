@@ -23,6 +23,10 @@ function startGame() {
   resetPoints();
   resetLives();
 
+  document.querySelector("#game_music").currentTime = 0;
+
+  document.querySelector("#game_music").play();
+
   startAnimation();
   regClick();
   addPosition();

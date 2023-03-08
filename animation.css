@@ -1,0 +1,101 @@
+.falling1 {
+    animation-name: falling;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+  
+  @keyframes falling {
+    0% {
+      transform: translate(0, -200%) rotate(0deg);
+    }
+    100% {
+      transform: translate(0, 56.25vw) rotate(720deg);
+    }
+  }
+  
+  .falling2 {
+    animation-name: falling;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+  
+  @keyframes falling_2 {
+    0% {
+      transform: translate(0, -200%);
+    }
+    100% {
+      transform: translate(0, 56.25vw);
+    }
+  }
+  
+  .paused {
+    animation-play-state: paused;
+  }
+  
+  .zoom_in {
+    animation-name: zoom_in;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes zoom_in {
+    0% {
+      transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+    90% {
+      transform: translate(0%, 0) scale(0.5) rotate(720deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(0%, 0) scale(0) rotate(800deg);
+      opacity: 0;
+    }
+  }
+  
+  .pulse {
+    animation-name: pulse_kf;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: alternate;
+  }
+  @keyframes pulse_kf {
+    0% {
+      transform: scale(0.8);
+    }
+  
+    100% {
+      transform: scale(1);
+    }
+  }
+
+
+  .minut_animation {
+    animation-name: min_kf;
+    animation-duration: 45s;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+  }
+  
+  @keyframes min_kf {
+    to {
+      rotate: 360deg;
+    }
+  }
+  
+  .time_animation {
+    animation-name: time_kf;
+    animation-duration: 45s;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+  }
+  
+  @keyframes time_kf {
+    to {
+      rotate: 60deg;
+    }
+  }
+  

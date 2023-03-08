@@ -21,7 +21,8 @@ img {
   display: grid;
   justify-content: center;
   align-content: center;
-  background-image: linear-gradient(150deg, #f62f2f 0%, #f5a91d 100%);
+  background-image: url(img/Startscreen.jpg);
+  background-size: cover;
   color: #ffffff;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   text-align: center;
@@ -70,8 +71,9 @@ img {
   display: grid;
   justify-content: center;
   align-content: center;
-  background-image: linear-gradient(150deg, #c90303 0%, #e01111 100%);
-  color: #ffffff;
+  background-image: url(img/gameover.jpg);
+  background-size: contain;
+  color: #ff0000;
   text-align: center;
 }
 #level_complete {
@@ -80,9 +82,49 @@ img {
   display: grid;
   justify-content: center;
   align-content: center;
-  background-image: linear-gradient(150deg, #20c903 0%, #1fee7c 100%);
+  background-image: url(img/complete.jpg);
+  background-size: contain;
   color: #ffffff;
+  text-align: center;
+  font-size: 2em;
 }
+/* Timer */
+
+#time_board {
+  position: relative;
+}
+
+#urskive {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url(urskive.svg);
+  background-size: cover;
+}
+
+#minut_viser {
+  position: absolute;
+  top: 5%;
+  left: -300%;
+  width: 3%;
+  height: 45%;
+  border-radius: 50%;
+  transform-origin: bottom center;
+  background-color: black;
+}
+
+#time_viser {
+  position: absolute;
+  top: 20%;
+  left: -300%;
+  width: 3%;
+  height: 30%;
+  border-radius: 50%;
+  transform-origin: bottom center;
+  background-color: red;
+  rotate: 30deg;
+}
+
 
 #score_board {
   display: grid;
@@ -105,6 +147,8 @@ img {
 #life_board img {
   width: 100%;
 }
+
+/* game items */
 
 #alien_container1 {
   width: 5%;
@@ -189,170 +233,15 @@ img {
   filter: grayscale(75%) blur(0.5px);
 }
 
-/* animation*/
 
-.falling1 {
-  animation-name: falling;
-  animation-duration: 10s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
-
-@keyframes falling {
-  0% {
-    transform: translate(0, -200%) rotate(0deg);
-  }
-  100% {
-    transform: translate(0, 56.25vw) rotate(720deg);
-  }
-}
-
-.falling2 {
-  animation-name: falling;
-  animation-duration: 10s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
-
-@keyframes falling_2 {
-  0% {
-    transform: translate(0, -200%);
-  }
-  100% {
-    transform: translate(0, 56.25vw);
-  }
-}
-
-.spiral {
-  animation-name: spiral;
-  animation-duration: 0.5s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  transform-origin: 50% 150%;
-}
-
-@keyframes spiral {
-  0% {
-    transform: rotate(0deg) scale(1);
-  }
-  100% {
-    transform: rotate(720deg) scale(0);
-  }
-}
-
-.paused {
-  animation-play-state: paused;
-}
-
-.zoom_in {
-  animation-name: zoom_in;
-  animation-duration: 1s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-}
-
-@keyframes zoom_in {
-  0% {
-    transform: translate(0, 0) scale(1) rotate(0deg);
-  }
-  90% {
-    transform: translate(0%, 0) scale(0.5) rotate(720deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(0%, 0) scale(0) rotate(800deg);
-    opacity: 0;
-  }
-}
-
-.pulse {
-  animation-name: pulse_kf;
-  animation-duration: 0.5s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  animation-direction: alternate;
-}
-@keyframes pulse_kf {
-  0% {
-    transform: scale(0.8);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-}
 button {
   padding: 0.5em 1em;
   font-size: 2em;
   margin: auto;
-  background-color: #ffad01;
-  color: #fff4bf;
-  border: 5px solid #ffc72e;
+  background-color: #c50bd6;
+  color: #ffffff;
+  border: 5px solid #e10de9;
   cursor: pointer;
   border-radius: 10px;
 }
 
-/* Timer */
-
-#time_board {
-  position: relative;
-}
-
-#urskive {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-image: url(urskive.svg);
-  background-size: cover;
-}
-
-#minut_viser {
-  position: absolute;
-  top: 105%;
-  left: 65%;
-  width: 3%;
-  height: 45%;
-  border-radius: 50%;
-  transform-origin: bottom center;
-  background-color: black;
-}
-
-#time_viser {
-  position: absolute;
-  top: 120%;
-  left: 65%;
-  width: 3%;
-  height: 30%;
-  border-radius: 50%;
-  transform-origin: bottom center;
-  background-color: red;
-  rotate: 30deg;
-}
-
-/* ------------ ANIMATIONER ------------ */
-
-.minut_animation {
-  animation-name: min_kf;
-  animation-duration: 45s;
-  animation-fill-mode: both;
-  animation-timing-function: linear;
-}
-
-@keyframes min_kf {
-  to {
-    rotate: 360deg;
-  }
-}
-
-.time_animation {
-  animation-name: time_kf;
-  animation-duration: 45s;
-  animation-fill-mode: both;
-  animation-timing-function: linear;
-}
-
-@keyframes time_kf {
-  to {
-    rotate: 60deg;
-  }
-}
