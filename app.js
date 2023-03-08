@@ -29,14 +29,19 @@ function startGame() {
 
   startAnimation();
   regClick();
-  addPosition();
   aniRestart();
   startTimer();
 }
+function showGameScreen() {
+  document.querySelector("#start").classList.add("hidden");
+  document.querySelector("#game_over").classList.add("hidden");
+  document.querySelector("#level_complete").classList.add("hidden");
+}
+
 function resetLives() {
-  // sæt lives til 3
+  
   lives = 3;
-  //nulstil visning af liv (hjerte vi ser)
+  
   document.querySelector("#heart1").classList.remove("broken_heart");
   document.querySelector("#heart2").classList.remove("broken_heart");
   document.querySelector("#heart3").classList.remove("broken_heart");
@@ -46,9 +51,9 @@ function resetLives() {
 }
 
 function resetPoints() {
-  // nulstil point
+  
   points = 0;
-  // nulstil vising af point
+  
   displayPoints();
 }
 
@@ -63,16 +68,6 @@ function aniRestart() {
   document.querySelector("#dumpling_container1").addEventListener("animationiteration", animationRestart);
 }
 
-function addPosition() {
-  document.querySelector("#alien_container1").classList.add("position1");
-  document.querySelector("#alien_container2").classList.add("position2");
-  document.querySelector("#alien_container3").classList.add("position3");
-  document.querySelector("#alien_container4").classList.add("position4");
-  document.querySelector("#pie_container1").classList.add("position5");
-  document.querySelector("#cheesecake_container1").classList.add("position6");
-  document.querySelector("#donut_container1").classList.add("position7");
-  document.querySelector("#dumpling_container1").classList.add("position8");
-}
 
 function regClick() {
   document.querySelector("#alien_container1").addEventListener("click", clickAlien);
@@ -94,6 +89,15 @@ function startAnimation() {
   document.querySelector("#cheesecake_container1").classList.add("falling2");
   document.querySelector("#donut_container1").classList.add("falling2");
   document.querySelector("#dumpling_container1").classList.add("falling2");
+
+  document.querySelector("#alien_container1").classList.add("position1");
+  document.querySelector("#alien_container2").classList.add("position2");
+  document.querySelector("#alien_container3").classList.add("position3");
+  document.querySelector("#alien_container4").classList.add("position4");
+  document.querySelector("#pie_container1").classList.add("position5");
+  document.querySelector("#cheesecake_container1").classList.add("position6");
+  document.querySelector("#donut_container1").classList.add("position7");
+  document.querySelector("#dumpling_container1").classList.add("position8");
 }
 
 function clickAlien() {
@@ -122,7 +126,7 @@ function clickGood() {
 
   pie.classList.add("paused");
 
-  pie.querySelector("img").classList.add("zoom_in");
+  pie.querySelector("img").classList.add("zoom_out");
 
   pie.addEventListener("animationend", goodGone);
 
@@ -154,7 +158,7 @@ function goodGone() {
   console.log("goodGone");
   good.removeEventListener("animationend", goodGone);
 
-  good.querySelector("img").classList.remove("zoom_in");
+  good.querySelector("img").classList.remove("zoom_out");
 
   good.classList.remove("paused");
 
@@ -201,22 +205,9 @@ function decrementLives() {
   lives--;
 }
 
-function incrementLives() {
-  console.log("+ point");
-  if (lives >= 3) {
-    lives;
-  } else lives++;
-  showIncrementedLives();
-}
-
 function showDecrementedLives() {
   document.querySelector("#heart" + lives).classList.remove("active_heart");
   document.querySelector("#heart" + lives).classList.add("broken_heart");
-}
-
-function showIncrementedLives() {
-  document.querySelector("#heart" + lives).classList.remove("broken_heart");
-  document.querySelector("#heart" + lives).classList.add("active_heart");
 }
 
 function gameover() {
@@ -235,17 +226,12 @@ function showStartScreen() {
   document.querySelector("#game_over").classList.add("hidden");
   document.querySelector("#level_complete").classList.add("hidden");
 }
-function showGameScreen() {
-  document.querySelector("#start").classList.add("hidden");
-  document.querySelector("#game_over").classList.add("hidden");
-  document.querySelector("#level_complete").classList.add("hidden");
-}
 
 function startTimer() {
   document.querySelector("#minut_viser").classList.add("minut_animation");
   document.querySelector("#time_viser").classList.add("time_animation");
 
-  //Når animationen er færdig kaldes stopSpillet()
+  
   document.querySelector("#minut_viser").addEventListener("animationend", gameover);
 }
 
@@ -284,7 +270,7 @@ function stopGame() {
   document.querySelector("#minut_viser").classList.remove("minut_animation");
   document.querySelector("#time_viser").classList.remove("time_animation");
 
-  // Stop og nulstil lyde, fx baggrundsmusik
-  //document.querySelector("#sound_dreams").pause();
- // document.querySelector("#sound_dreams").currentTime = 0;
+
+  document.querySelector("#game_music").pause();
+  document.querySelector("#game_music").currentTime = 0;
 }

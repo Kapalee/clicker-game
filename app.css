@@ -88,6 +88,7 @@ img {
   text-align: center;
   font-size: 2em;
 }
+
 /* Timer */
 
 #time_board {
@@ -151,34 +152,42 @@ img {
 /* game items */
 
 #alien_container1 {
+  top: -10%;
   width: 5%;
   position: absolute;
 }
 #alien_container2 {
+  top: -20%;
   width: 5%;
   position: absolute;
 }
 #alien_container3 {
+  top: -55%;
   width: 5%;
   position: absolute;
 }
 #alien_container4 {
+  top: -15%;
   width: 5%;
   position: absolute;
 }
 #pie_container1 {
+  top: -40%;
   width: 6.5%;
   position: absolute;
 }
 #cheesecake_container1 {
+  top: -35%;
   width: 6.5%;
   position: absolute;
 }
 #donut_container1 {
+  top: -25%;
   width: 6.5%;
   position: absolute;
 }
 #dumpling_container1 {
+  top: -45%;
   width: 6.5%;
   position: absolute;
 }
